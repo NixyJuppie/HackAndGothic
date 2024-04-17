@@ -55,12 +55,7 @@ fn read_header(file: PathBuf) -> Option<HashMap<String, String>> {
 
     for (i, line) in fs::read_to_string(file).unwrap().lines().enumerate() {
         if i == 0 {
-            if !line
-                .trim()
-                .trim_start_matches("/*")
-                .trim()
-                .starts_with("@RANDOMIZE")
-            {
+            if line.trim().trim_start_matches("/*").trim() != "@RANDOMIZE" {
                 return None;
             } else {
                 continue;

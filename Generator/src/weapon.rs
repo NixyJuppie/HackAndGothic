@@ -20,29 +20,33 @@ impl Into<WeaponGenerator> for HashMap<String, String> {
 
 fn read_string(map: &HashMap<String, String>, name: &str) -> String {
     map.get(name)
-        .expect(&format!("Missing property '{}'", name))
+        .expect(&format!("Missing header property '{}'", name))
         .clone()
 }
 
 fn read_u32(map: &HashMap<String, String>, name: &str) -> u32 {
     map.get(name)
-        .expect(&format!("Missing property '{}'", name))
+        .expect(&format!("Missing header property '{}'", name))
         .parse()
-        .expect(&format!("Cannot parse '{}'", name))
+        .expect(&format!("Cannot parse header property '{}'", name))
 }
 
 fn read_u32_pair(map: &HashMap<String, String>, name: &str) -> (u32, u32) {
     let splits: Vec<&str> = map
         .get(name)
-        .expect(&format!("Missing property '{}'", name))
+        .expect(&format!("Missing header property '{}'", name))
         .split(' ')
         .collect();
 
-    assert!(splits.len() == 2, "Cannot parse property '{}'", name);
+    assert!(splits.len() == 2, "Cannot parse header property '{}'", name);
 
     (
-        splits[0].parse().expect("Cannot parse property '{}'[0]"),
-        splits[1].parse().expect("Cannot parse property '{}'[1]"),
+        splits[0]
+            .parse()
+            .expect(&format!("Cannot parse header property '{}'[0]", name)),
+        splits[1]
+            .parse()
+            .expect(&format!("Cannot parse header property '{}'[1]", name)),
     )
 }
 
