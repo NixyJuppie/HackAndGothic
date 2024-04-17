@@ -1,20 +1,20 @@
 class C_ITEM
 {
-    var int id;
-    var string name;
-    var string nameID;
+    var int Id;
+    var string Name;
+    var string NameId;
     var int Hitpoints;
     var int MaxHitpoints;
-    var int MainFlag;
+    var int Category;
     var int Flags;
     var int Weight;
     var int Value;
 
     var int DamageType;
     var int DamageTotal;
-    var int Damage[DAM_LENGTH];
+    var int Damage[DAMAGE_LENGTH];
     var int Wear;
-    var int Protection[PROT_LENGTH];
+    var int Protection[PROTECTION_LENGTH];
     var int Nutrition;
 
     var int ConditionAttribute[3];
@@ -45,7 +45,7 @@ class C_ITEM
 
     var string DescriptionTitle;
     var string DescriptionLabel[6];
-    var int DescriptonValue[6];
+    var int DescriptionValue[6];
 
     var int Inventory_BiasZ;
     var int Inventory_RotationX;

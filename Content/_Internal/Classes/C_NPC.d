@@ -6,10 +6,10 @@ class C_NPC
     var string Effect;
     var int NpcType;
     var int Flags;
-    var int Attribute[ATR_LENGTH];
+    var int Attribute[ATTRIBUTE_LENGTH];
     var int HitChance[5];
-    var int Protection[PROT_LENGTH];
-    var int Damage[DAM_LENGTH];
+    var int Protection[PROTECTION_LENGTH];
+    var int Damage[DAMAGE_LENGTH];
     var int DamageType;
     var int Guild;
     var int Level;

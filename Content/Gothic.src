@@ -1,4 +1,10 @@
-Internal\Constants.d
-Internal\Classes\*.d
+_Internal\Constants.d
+_Internal\Classes\*.d
+
+Game\Text.d
+
+Game\Items\Templates\*.d
+Game\Items\Generated\*.d
+
 Game\Player.d
 Game\Startup.d
