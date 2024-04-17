@@ -16,7 +16,7 @@ With this goal in mind, priority is given to aspects such as itemization, balanc
     2. `cargo run -- -s ../Content/Game/Items/Templates -t ../Content/Game/Items/Generated`
 
 ### Linux (Proton)
-> protontricks-launch --appid 39510 Gothic2.exe -zreparse
+`protontricks-launch --appid 39510 Gothic2.exe -zreparse`
 
 ### Windows
-> Gothic2.exe -zreparse
+`Gothic2.exe -zreparse`
