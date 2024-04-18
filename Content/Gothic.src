@@ -1,10 +1,13 @@
 _Internal\Constants.d
 _Internal\Classes\*.d
 
+Game\Focus.d
 Game\Texts.d
 
 Game\Items\Templates\*.d
 Game\Items\Generated\*.d
+Game\Items\DevItems.d
 
-Game\Player.d
+Game\NPCs\*.d
+
 Game\Startup.d

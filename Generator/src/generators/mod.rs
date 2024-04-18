@@ -25,7 +25,7 @@ impl Generator for DaedalusGenerator {
                 "\
 // THIS FILE IS AUTO-GENERATED
 // DATE: {}
-// TEMPLATE: {:?}\n\n",
+// TEMPLATE: {:?}\n",
                 chrono::Local::now(),
                 self
             ),

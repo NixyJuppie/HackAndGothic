@@ -1,6 +1,6 @@
 const int ATTRIBUTE_HITPOINTS = 0;
 const int ATTRIBUTE_HITPOINTS_MAX = 1;
-const int ATTRIBUTE_MANA =  2;
+const int ATTRIBUTE_MANA = 2;
 const int ATTRIBUTE_MANA_MAX = 3;
 const int ATTRIBUTE_STRENGTH = 4;
 const int ATTRIBUTE_DEXTERITY = 5;

@@ -22,7 +22,3 @@ class C_FOCUS
     var float MobElevationUp;
     var int MobPriority;
 };
-
-// Inventory can't be opened without this
-const int BS_STAND = 0 | 32768 /* Interruptable */ | 65536 /* FreeHands */;
-instance Focus_Throw_Item (C_FOCUS) { ItemAzimuth = 20.0; };
