@@ -1,7 +1,7 @@
 _Internal\Constants.d
 _Internal\Classes\*.d
 
-Game\Text.d
+Game\Texts.d
 
 Game\Items\Templates\*.d
 Game\Items\Generated\*.d
