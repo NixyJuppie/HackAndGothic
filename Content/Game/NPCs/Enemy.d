@@ -1,6 +1,6 @@
 instance Enemy(C_NPC)
 {
-    Name = TEXT_ENEMY;
+    Name = TEXT_Enemy;
 
     Attribute[ATTRIBUTE_HITPOINTS] = 50;
     Attribute[ATTRIBUTE_HITPOINTS_MAX] = 50;

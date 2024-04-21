@@ -1,6 +1,6 @@
 instance PC_Hero(C_NPC)
 {
-    Name = TEXT_PLAYER;
+    Name = TEXT_Player;
 
     Attribute[ATTRIBUTE_HITPOINTS] = 100;
     Attribute[ATTRIBUTE_HITPOINTS_MAX] = 100;

@@ -1,7 +1,11 @@
-const string TEXT_DAMAGE = "Damage";
-const string TEXT_RANGE = "Range";
-const string TEXT_QUALITY = "Quality (%)";
-const string TEXT_VALUE = "Value";
+const string TEXT_Damage = "Damage";
+const string TEXT_Value = "Value";
 
-const string TEXT_PLAYER = "Player";
-const string TEXT_ENEMY = "Enemy";
+const string TEXT_Player = "Player";
+const string TEXT_Enemy = "Enemy";
+
+const string TEXT_EnhancedDamageAffix = "Enhanced Damage (%)";
+const string TEXT_EnhancedRangeAffix = "Enhanced Range (%)";
+const string TEXT_BonusHitpointsAffix = "Bonus Hitpoints";
+const string TEXT_BonusManaAffix = "Bonus Mana";
+const string TEXT_BonusStrengthAffix = "Bonus Strength";
