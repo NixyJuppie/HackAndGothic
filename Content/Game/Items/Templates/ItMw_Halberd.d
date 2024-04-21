@@ -1,20 +1,20 @@
 /* @RANDOMIZE
 (
-    prototype: "ItMw_Pickaxe",
+    prototype: "ItMw_Halberd",
     category: Weapon
 )
 */
 
-prototype ItMw_Pickaxe (C_ITEM)
+prototype ItMw_Halberd (C_ITEM)
 {
-    Name = TEXT_Pickaxe;
+    Name = TEXT_Halberd;
     DescriptionTitle = Name;
     Category = ITEM_CATEGORY_MELEE;
     Flags = ITEM_FLAG_2HD_AXE;
     Material = MATERIAL_METAL;
-    DamageTotal = 20;
+    DamageTotal = 50;
     DamageType = DAMAGE_EDGE;
-    Range = 60;
-    Visual = "ItMw_020_2h_Pickaxe_01.3DS";
-    Value = 25;
+    Range = 80;
+    Visual = "ItMw_028_2h_Halberd_01.3DS";
+    Value = 100;
 };

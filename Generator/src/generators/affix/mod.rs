@@ -23,6 +23,7 @@ pub struct AffixDefinition {
     pub identifier: &'static str,
     pub code_template: &'static str,
     pub value_range: Range<i32>,
+    pub value_step: i32,
     pub value_weight: f32,
 }
 

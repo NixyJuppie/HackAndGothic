@@ -8,20 +8,21 @@
 
 prototype ItMw_Dagger (C_ITEM)
 {
-    Name = "Dagger";
+    Name = TEXT_Dagger;
     DescriptionTitle = Name;
     Category = ITEM_CATEGORY_MELEE;
     Flags = ITEM_FLAG_SWD;
     Material = MATERIAL_METAL;
     DamageTotal = 5;
     DamageType = DAMAGE_EDGE;
+    Range = 50;
     Visual = "ItMw_005_1h_Dagger_01.3DS";
-    Value = 15;
+    Value = 10;
 };
 
 instance ItMw_FireDagger (ItMw_Dagger)
 {
-    Name = "Fire Dagger";
+    Name = TEXT_FireDagger;
     DamageType = DAMAGE_FIRE;
     Visual = "ItMw_005_1h_Dagger_01.3DS";
     Effect = "SPELLFX_FIREARROW";
@@ -43,10 +44,12 @@ instance ItMw_FireDagger (ItMw_Dagger)
     DescriptionLabel[4] = TEXT_BonusStrengthAffix;
     DescriptionValue[4] = 10;
 
-    DescriptionLabel[0] = TEXT_Damage;
-    DescriptionValue[0] = DamageTotal;
+    var string damageText; damageText = ConcatStrings(TEXT_Damage, ConcatStrings(" = ", IntToString(DamageTotal)));
+    var string rangeText; rangeText = ConcatStrings(TEXT_Range, ConcatStrings(" = ", IntToString(Range)));
+    DescriptionLabel[0] = ConcatStrings(damageText, ConcatStrings(", ", rangeText));
+    DescriptionValue[0] = 0;
 
-    Value = 500;
+    Value = 250;
     DescriptionLabel[5] = TEXT_Value;
     DescriptionValue[5] = Value;
 };

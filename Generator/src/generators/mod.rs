@@ -32,7 +32,12 @@ impl DaedalusGenerator {
             {
                 for affixes in definitions
                     .iter()
-                    .map(|d| d.value_range.clone().map(|v| d.affix(v)))
+                    .map(|d| {
+                        (d.value_range.start..d.value_range.end - 1)
+                            .step_by(d.value_step as usize)
+                            .chain(Some(d.value_range.end))
+                            .map(|v| d.affix(v))
+                    })
                     .multi_cartesian_product()
                 {
                     let instance = instance_identifier(&self.prototype, &affixes);
@@ -105,7 +110,15 @@ fn generate_instance_code(
     }
 
     match category {
-        AffixCategory::Weapon => content += &generate_description(0, "TEXT_Damage", "DamageTotal"),
+        AffixCategory::Weapon => {
+            content += &generate_line("var string damageText; damageText = ConcatStrings(TEXT_Damage, ConcatStrings(\" = \", IntToString(DamageTotal)));");
+            content += &generate_line("var string rangeText; rangeText = ConcatStrings(TEXT_Range, ConcatStrings(\" = \", IntToString(Range)));");
+            content += &generate_description(
+                0,
+                "ConcatStrings(damageText, ConcatStrings(\", \", rangeText))",
+                "0",
+            )
+        }
     };
 
     content += &generate_line(&format!(
