@@ -11,7 +11,7 @@ const string TEXT_BonusManaAffix = "Bonus Mana";
 const string TEXT_BonusStrengthAffix = "Bonus Strength";
 
 const string TEXT_Player = "Player";
-const string TEXT_Enemy = "Enemy";
+const string TEXT_Goblin = "Goblin";
 
 const string TEXT_Dagger = "Dagger";
 const string TEXT_FireDagger = "Fire Dagger";

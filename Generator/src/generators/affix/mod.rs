@@ -1,3 +1,4 @@
+mod enemy;
 mod weapon;
 
 use serde::{Deserialize, Serialize};
@@ -6,13 +7,19 @@ use std::{fmt::Debug, ops::Range};
 #[derive(Serialize, Deserialize, Debug, Clone, Copy)]
 pub enum AffixCategory {
     Weapon,
+    Enemy,
 }
 
 impl AffixCategory {
     pub fn definitions(&self) -> AffixDefinitions {
         match self {
             AffixCategory::Weapon => AffixDefinitions(weapon::DEFINITIONS.to_vec()),
+            AffixCategory::Enemy => AffixDefinitions(enemy::DEFINITIONS.to_vec()),
         }
+    }
+
+    pub fn has_description(&self) -> bool {
+        matches!(self, Self::Weapon)
     }
 }
 

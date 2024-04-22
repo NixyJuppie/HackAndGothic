@@ -7,8 +7,11 @@ Game\Functions.d
 
 Game\Items\Templates\*.d
 Game\Items\Generated\*.d
-Game\Items\DevItems.d
 
+Game\NPCs\Templates\*.d
+Game\NPCs\Generated\*.d
+
+Game\Items\*.d
 Game\NPCs\*.d
 
 Game\Startup.d

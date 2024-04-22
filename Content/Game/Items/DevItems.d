@@ -34,9 +34,9 @@ instance Dev_EnemySpawner (C_ITEM)
 func void UseEnemySpawner()
 {
     var string wp; wp = Npc_GetNearestWP(self);
-    Wld_InsertNpc(Enemy, wp);
-    Wld_InsertNpc(Enemy, wp);
-    Wld_InsertNpc(Enemy, wp);
-    Wld_InsertNpc(Enemy, wp);
-    Wld_InsertNpc(Enemy, wp);
+    Wld_InsertNpc(Goblin_Random(), wp);
+    Wld_InsertNpc(Goblin_Random(), wp);
+    Wld_InsertNpc(Goblin_Random(), wp);
+    Wld_InsertNpc(Goblin_Random(), wp);
+    Wld_InsertNpc(Goblin_Random(), wp);
 };

@@ -1,6 +1,14 @@
-instance Enemy(C_NPC)
+/* @RANDOMIZE
+(
+    category: Enemy,
+    prototype: "Goblin",
+    uniques: []
+)
+*/
+
+prototype Goblin(C_NPC)
 {
-    Name = TEXT_Enemy;
+    Name = TEXT_Goblin;
 
     Attribute[ATTRIBUTE_HITPOINTS] = 50;
     Attribute[ATTRIBUTE_HITPOINTS_MAX] = 50;

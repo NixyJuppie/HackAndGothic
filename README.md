@@ -11,9 +11,10 @@ With this goal in mind, priority is given to aspects such as itemization, balanc
 ### Prerequisites
 1. Use `direnv` or `nix develop` or install Cargo manually
 2. Link `Content` directory to `<GOTHIC_ROOT>/_work/Data/Scripts/Content`.
-3. Generate items
+3. Generate instances
     1. `cd Generator`
     2. `cargo run -- -s ../Content/Game/Items/Templates -t ../Content/Game/Items/Generated`
+    2. `cargo run -- -s ../Content/Game/NPCs/Templates -t ../Content/Game/NPCs/Generated`
 
 ### Linux (Proton)
 `protontricks-launch --appid 39510 Gothic2.exe -zreparse`

@@ -98,29 +98,35 @@ fn generate_instance_code(
             &affix
                 .definition
                 .code_template
-                .replace("{}", &affix.value.to_string()),
+                .replace("{value}", &affix.value.to_string())
+                .replace("{percent}", &(affix.value as f32 / 100.0).to_string()),
         );
-        content += &generate_description(
-            index + 1,
-            &format!("TEXT_{}Affix", affix.definition.identifier),
-            &affix.value.to_string(),
-        );
+        if category.has_description() {
+            content += &generate_description(
+                index + 1,
+                &format!("TEXT_{}Affix", affix.definition.identifier),
+                &affix.value.to_string(),
+            );
+        }
 
         value_multiplier *= calculate_value_multiplier(affix);
     }
 
-    match category {
-        AffixCategory::Weapon => {
-            content +=
-                &generate_description(0, "CreateWeaponSummary(DamageTotal, Range, Flags)", "0")
+    if category.has_description() {
+        match category {
+            AffixCategory::Weapon => {
+                content +=
+                    &generate_description(0, "CreateWeaponSummary(DamageTotal, Range, Flags)", "0")
+            }
+            _ => unreachable!(),
         }
-    };
 
-    content += &generate_line(&format!(
-        "Value *= {} / 100;",
-        (value_multiplier * 100.0).round() as i32
-    ));
-    content += &generate_description(5, "TEXT_Value", "Value");
+        content += &generate_line(&format!(
+            "Value *= {} / 100;",
+            (value_multiplier * 100.0).round() as i32
+        ));
+        content += &generate_description(5, "TEXT_Value", "Value");
+    };
 
     content + "};\n\n"
 }
@@ -143,20 +149,25 @@ fn generate_random_func(
     for (index, instances) in instances.iter().enumerate() {
         let affixes = index + 1;
         content += &format!("func int {}_Random{}() {{\n", prototype, affixes);
-        content += &generate_line(&format!(
-            "var int random; random = Hlp_Random({});",
-            instances.len()
-        ));
 
-        for (index, instance) in instances.iter().enumerate() {
-            content += &if index + 1 < instances.len() {
-                generate_line(&format!(
-                    "if (random == {}) {{ return {}; }};",
-                    index, instance
-                ))
-            } else {
-                generate_line(&format!("return {};", instance))
-            };
+        if instances.len() > 0 {
+            content += &generate_line(&format!(
+                "var int random; random = Hlp_Random({});",
+                instances.len()
+            ));
+
+            for (index, instance) in instances.iter().enumerate() {
+                content += &if index + 1 < instances.len() {
+                    generate_line(&format!(
+                        "if (random == {}) {{ return {}; }};",
+                        index, instance
+                    ))
+                } else {
+                    generate_line(&format!("return {};", instance))
+                };
+            }
+        } else {
+            content += &generate_line(&format!("return {};", base));
         }
 
         content += "};\n\n";
