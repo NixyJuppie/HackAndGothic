@@ -20,7 +20,7 @@ struct CliArgs {
 }
 
 fn main() {
-    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("debug")).init();
+    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
 
     let args = CliArgs::parse();
     debug!("Parsed args: {:?}", args);
@@ -50,7 +50,7 @@ fn main() {
                 let _ = fs::remove_file(target);
             }
             Some(generator) => {
-                info!("Generated code for {}", file.path().display());
+                info!("Writing generated code for {}", file.path().display());
                 for (index, content) in generator.generate().iter_mut().enumerate() {
                     let target = target.with_extension(format!("{index}.d"));
 

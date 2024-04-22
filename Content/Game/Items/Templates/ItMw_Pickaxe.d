@@ -16,5 +16,5 @@ prototype ItMw_Pickaxe (C_ITEM)
     DamageType = DAMAGE_EDGE;
     Range = 60;
     Visual = "ItMw_020_2h_Pickaxe_01.3DS";
-    Value = 25;
+    Value = 10;
 };

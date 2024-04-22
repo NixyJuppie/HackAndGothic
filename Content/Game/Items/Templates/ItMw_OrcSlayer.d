@@ -1,20 +1,20 @@
 /* @RANDOMIZE
 (
-    prototype: "ItMw_ShortSword",
+    prototype: "ItMw_OrcSlayer",
     category: Weapon,
 )
 */
 
-prototype ItMw_ShortSword (C_ITEM)
+prototype ItMw_OrcSlayer (C_ITEM)
 {
-    Name = TEXT_ShortSword;
+    Name = TEXT_OrcSlayer;
     DescriptionTitle = Name;
     Category = ITEM_CATEGORY_MELEE;
     Flags = ITEM_FLAG_SWD;
     Material = MATERIAL_METAL;
-    DamageTotal = 40;
+    DamageTotal = 125;
     DamageType = DAMAGE_EDGE;
-    Range = 50;
-    Visual = "ItMw_016_1h_Sword_Short_03.3DS";
-    Value = 25;
+    Range = 100;
+    Visual = "ItMw_065_1h_Sword_Bastard_04.3DS";
+    Value = 250;
 };

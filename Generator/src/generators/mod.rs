@@ -111,13 +111,8 @@ fn generate_instance_code(
 
     match category {
         AffixCategory::Weapon => {
-            content += &generate_line("var string damageText; damageText = ConcatStrings(TEXT_Damage, ConcatStrings(\" = \", IntToString(DamageTotal)));");
-            content += &generate_line("var string rangeText; rangeText = ConcatStrings(TEXT_Range, ConcatStrings(\" = \", IntToString(Range)));");
-            content += &generate_description(
-                0,
-                "ConcatStrings(damageText, ConcatStrings(\", \", rangeText))",
-                "0",
-            )
+            content +=
+                &generate_description(0, "CreateWeaponSummary(DamageTotal, Range, Flags)", "0")
         }
     };
 

@@ -3,6 +3,7 @@ _Internal\Classes\*.d
 
 Game\Focus.d
 Game\Texts.d
+Game\Functions.d
 
 Game\Items\Templates\*.d
 Game\Items\Generated\*.d

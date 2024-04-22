@@ -13,9 +13,12 @@ func void UseWeaponSpawner()
     CreateInvItem(self, ItMw_Dagger_Random());
     CreateInvItem(self, ItMw_HeavyBranch_Random());
     CreateInvItem(self, ItMw_ShortSword_Random());
+    CreateInvItem(self, ItMw_OrcSlayer_Random());
 
     CreateInvItem(self, ItMw_Pickaxe_Random());
-    CreateInvItem(self, ItMw_Halberd_Random());
+    CreateInvItem(self, ItMw_RustyAxe_Random());
+    CreateInvItem(self, ItMw_RustyTwoHander_Random());
+    CreateInvItem(self, ItMw_DragonSlayer_Random());
 };
 
 instance Dev_EnemySpawner (C_ITEM)
