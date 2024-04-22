@@ -1,7 +1,8 @@
 /* @RANDOMIZE
 (
+    category: Weapon,
     prototype: "ItMw_RustyTwoHander",
-    category: Weapon
+    uniques: []
 )
 */
 

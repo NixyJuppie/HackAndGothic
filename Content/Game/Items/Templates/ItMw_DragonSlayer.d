@@ -1,7 +1,8 @@
 /* @RANDOMIZE
 (
-    prototype: "ItMw_DragonSlayer",
     category: Weapon,
+    prototype: "ItMw_DragonSlayer",
+    uniques: []
 )
 */
 

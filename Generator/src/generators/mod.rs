@@ -10,7 +10,7 @@ use crate::generators::affix::Affix;
 pub struct DaedalusGenerator {
     pub prototype: String,
     pub category: AffixCategory,
-    pub unique: Option<String>,
+    pub uniques: Vec<String>,
 }
 
 impl DaedalusGenerator {
@@ -61,7 +61,7 @@ impl DaedalusGenerator {
         contents.push(content);
         contents.push(generate_random_func(
             base,
-            self.unique.clone(),
+            &self.uniques,
             instances,
             &self.prototype,
         ));
@@ -134,7 +134,7 @@ fn calculate_value_multiplier(affix: &Affix) -> f32 {
 
 fn generate_random_func(
     base: String,
-    unique: Option<String>,
+    uniques: &Vec<String>,
     instances: [Vec<String>; 4],
     prototype: &str,
 ) -> String {
@@ -162,6 +162,27 @@ fn generate_random_func(
         content += "};\n\n";
     }
 
+    if uniques.len() > 0 {
+        content += &format!("func int {}_RandomUnique() {{\n", prototype);
+        content += &generate_line(&format!(
+            "var int random; random = Hlp_Random({});",
+            uniques.len()
+        ));
+
+        for (index, unique) in uniques.iter().enumerate() {
+            content += &if index + 1 < uniques.len() {
+                generate_line(&format!(
+                    "if (random == {}) {{ return {}; }};",
+                    index, unique
+                ))
+            } else {
+                generate_line(&format!("return {};", unique))
+            };
+        }
+
+        content += "};\n\n";
+    }
+
     content += &format!("func int {}_Random() {{\n", prototype);
     content += &generate_line("var int affixesCount; affixesCount = Hlp_Random(100);");
     content += &generate_line(&format!("if (affixesCount < 40) {{ return {}; }};", base));
@@ -174,16 +195,14 @@ fn generate_random_func(
     content += &generate_line(&format!(
         "if (affixesCount < 85) {{ return {prototype}_Random3(); }};",
     ));
-    match unique {
-        Some(unique) => {
-            content += &generate_line(&format!(
-                "if (affixesCount < 99) {{ return {prototype}_Random4(); }};"
-            ));
-            content += &generate_line(&format!("return {unique};"));
-        }
-        None => {
-            content += &generate_line(&format!("return {prototype}_Random4();"));
-        }
+
+    if uniques.len() > 0 {
+        content += &generate_line(&format!(
+            "if (affixesCount < 99) {{ return {prototype}_Random4(); }};"
+        ));
+        content += &generate_line(&format!("return {prototype}_RandomUnique();"));
+    } else {
+        content += &generate_line(&format!("return {prototype}_Random4();"));
     }
 
     content += "};\n\n";

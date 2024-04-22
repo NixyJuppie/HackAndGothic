@@ -1,7 +1,8 @@
 /* @RANDOMIZE
 (
-    prototype: "ItMw_ShortSword",
     category: Weapon,
+    prototype: "ItMw_ShortSword",
+    uniques: []
 )
 */
 
